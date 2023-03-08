@@ -28,18 +28,18 @@ public class Main {
         double average = sum/count;
         System.out.println(average);
 
-        for(int i = 0; i < arrayNums.length-1; i++) {
-            for (int j = i+1; j<arrayNums.length; j++) {
-                if(arrayNums[i] > arrayNums[j]) {
-                    double num = arrayNums[i];
-                    arrayNums[i] = arrayNums[j];
-                    arrayNums[j] = num;
-                    System.out.println(Arrays.toString(arrayNums));
+        for (int i = 0; i < arrayNums.length - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < arrayNums.length; j++) {
+                if (arrayNums[j] < arrayNums[minIndex]) {
+                    minIndex = j;
                 }
-
             }
+            double nums = arrayNums[minIndex];
+            arrayNums[minIndex] = arrayNums[i];
+            arrayNums[i] = nums;
+            System.out.println("Array after iteration " + (i + 1) + ": " + Arrays.toString(arrayNums));
         }
 
     }
-
 }
